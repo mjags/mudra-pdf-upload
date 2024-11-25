@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mudra Enterprise</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <style>
+    table.table-bordered{
+    border:1px solid black;
+
+  }
+table.table-bordered > thead > tr > th{
+    border:1px solid black;
+}
+table.table-bordered > tbody > tr > td{
+    border:1px solid black;
+}
+
+
+    </style>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<br/>
+<div style="margin:10px 10px 10px 10px">
+    <table class="table" style="font-family: 'Roboto', sans-serif;border-spacing: 0; border-collapse: separate;">
+        <thead>
+        <tr>
+            <th scope="col" class="bg-warning" style="border-top-left-radius: 12px; border-color: darkgrey"><span>Upload</span></th>
+            <th scope="col" class="bg-warning" style="border-top-right-radius: 12px; border-color: darkgrey"><span>Details</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td width="30%" align="left" style="border-bottom-left-radius: 12px; background-color: wheat; border-color: darkgrey">
+                <div th:replace="fragments/left :: left"></div>
+            </td>
+            <td width="70%" style="border-bottom-right-radius: 12px; background-color: wheat; border-color: darkgrey">
+                <div th:replace="fragments/right :: right"></div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br/>
+<center>
+    <div th:replace="fragments/footer :: footer"></div>
+</center>
+</body>
+</html>

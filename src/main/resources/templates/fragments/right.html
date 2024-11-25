@@ -1,0 +1,44 @@
+<div th:fragment="right" class="right" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="column">
+        <div style="margin-bottom: 10px">
+            <th:block layout:fragment="alert-content">
+                <table style="border-spacing: 10px;" width="100%">
+                    <tbody>
+                    <tr class="mb-2" style="font-family: 'Roboto', sans-serif;font-weight: 100;">
+                        <form method="get" th:action="@{/get}">
+                            <td align="left">
+                                <button type="submit" class="btn btn-success">Get Files</button>
+                            </td>
+                            <td align="right">
+                                <button type="reset" name="reset" class="btn btn-info">Clear</button>
+                            </td>
+                        </form>
+                    </tr>
+                    </tbody>
+                </table>
+            </th:block>
+        </div>
+        <div style="height:256px;overflow:auto;border:'solid 1px black'">
+            <table class="table table-bordered"
+                   style="font-family: 'Roboto', sans-serif;font-weight: 300;border-bottom-color: 'black';">
+                <thead style="background-color: #ec9513; color: black;">
+                <tr>
+                    <th scope="col" class="font-weight-light">Select</th>
+                    <th scope="col" class="font-weight-light">Name</th>
+                    <th scope="col" class="font-weight-light">Uploaded On</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${books==null}">
+                    <td colspan="3"> No Books Available</td>
+                </tr>
+                <tr th:each="book : ${books}" style="border: 'solid 1px black'">
+                    <td><input type="radio" th:name="${'priorities[' + item + ']'}" value="${book.name}"/></td>
+                    <td th:text="${book.name}">Text</td>
+                    <td th:text="${#temporals.format(book.createdTs, 'dd-MM-yyyy HH:mm')}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

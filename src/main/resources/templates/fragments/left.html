@@ -1,0 +1,15 @@
+<div th:fragment="left" class="left" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="container">
+        <div class="row">
+            <div style="margin-top: 28px; margin-left: 20px;">
+                <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+                <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="file" name="file" class="form-control-file">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload File</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
